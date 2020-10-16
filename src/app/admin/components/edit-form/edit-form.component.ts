@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Product } from 'src/app/home/home.model';
 import { HomeService } from 'src/app/home/home.service';
 
@@ -14,11 +14,19 @@ export class EditFormComponent implements OnInit {
   
   constructor(
     private productService: HomeService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  async presentToast(model: string) {
+    const toast = await this.toastCtrl.create({
+      color: 'success',
+      message: `${model} Berhasil Diedit!`,
+      duration: 2000
+    });
+    toast.present();
   }
 
   onSubmit(form: NgForm){
@@ -59,6 +67,7 @@ export class EditFormComponent implements OnInit {
 
     this.productService.editProduct(edit_product)
     this.modalCtrl.dismiss(null, 'cancel')
+    this.presentToast(form.value.model)
   }
 
 }

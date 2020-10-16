@@ -15,11 +15,11 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Merek</ion-label>
-      <ion-input [(ngModel)]="product.merek" name="merek"></ion-input>
+      <ion-input [(ngModel)]="product.merek" name="merek" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Model</ion-label>
-      <ion-input [(ngModel)]="product.model" name="model" ></ion-input>
+      <ion-input [(ngModel)]="product.model" name="model" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Harga (Rp)</ion-label>
@@ -27,7 +27,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Stok</ion-label>
-      <ion-input [(ngModel)]="product.stok" name="stok" type="number"></ion-input>
+      <ion-input [(ngModel)]="product.stok" name="stok" type="number" required></ion-input>
     </ion-item>
     <ion-list-header lines="full">
       <ion-label>Detail Produk</ion-label>
@@ -67,7 +67,7 @@
       </ion-col>
       <ion-col size="6">
         <ion-item>
-          <ion-label position="stacked">Ukuran</ion-label>
+          <ion-label position="stacked">Ukuran (GB)</ion-label>
           <ion-input [(ngModel)]="product.tambahan['ukuran']" name="ukuran" type="number" required></ion-input>
         </ion-item>
       </ion-col>
