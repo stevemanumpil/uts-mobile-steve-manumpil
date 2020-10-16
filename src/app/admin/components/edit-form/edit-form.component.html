@@ -1,0 +1,91 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">URL Foto</ion-label>
+      <ion-input type="url" [(ngModel)]="product.foto" name="foto" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Jenis</ion-label>
+      <ion-select [(ngModel)]="product.jenis" interface="popover" name="jenis" [disabled]="true" #jenis>
+        <ion-select-option value="cpu">Processor</ion-select-option>
+        <ion-select-option value="ram">RAM</ion-select-option>
+        <ion-select-option value="mobo">Mother Board</ion-select-option>
+        <ion-select-option value="gpu">GPU</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Merek</ion-label>
+      <ion-input [(ngModel)]="product.merek" name="merek"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Model</ion-label>
+      <ion-input [(ngModel)]="product.model" name="model" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Harga (Rp)</ion-label>
+      <ion-input [(ngModel)]="product.harga" name="harga" type="number" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Stok</ion-label>
+      <ion-input [(ngModel)]="product.stok" name="stok" type="number"></ion-input>
+    </ion-item>
+    <ion-list-header lines="full">
+      <ion-label>Detail Produk</ion-label>
+    </ion-list-header>
+    <ion-row *ngIf="jenis.value == 'cpu'">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Base Clock (GHz)</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['base clock']" name="base_clock" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Boost Clock (GHz)</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['boost clock']" name="boost_clock" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Core Count</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['core']" name="core" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Thread Count</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['thread']" name="thread" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="jenis.value == 'ram'">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Speed (MHz)</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['speed']" name="speed" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Ukuran</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['ukuran']" name="ukuran" type="number" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="jenis.value == 'mobo'">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Chipset</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['chipset']" name="chipset" type="text" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="stacked">Compatible Brand</ion-label>
+          <ion-input [(ngModel)]="product.tambahan['compatible brand']" name="compatibleBrand" type="text" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-button expand="full" color="primary" type="submit" [disabled]="!form.valid">Submit</ion-button>
+</form>

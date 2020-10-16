@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-add-form *ngIf="title == 'Tambah Produk'"></app-add-form>
+  <app-edit-form *ngIf="title == 'Edit Produk'" [product]="product"></app-edit-form>
+</ion-content>

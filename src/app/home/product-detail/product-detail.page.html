@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide>
+      <img [src]="showProduct.foto" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="showProduct.foto" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="showProduct.foto" />
+    </ion-slide>
+  </ion-slides>
+  <ion-item>
+    <ion-label>
+      <ion-card-title class="ion-margin-bottom">{{showProduct.model}}</ion-card-title>
+      <h2>{{showProduct.harga | currency : 'IDR'}}</h2>
+      <ion-card-subtitle class="ion-margin-top">Tersedia: {{showProduct.stok}}</ion-card-subtitle>
+    </ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Tentang Produk</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Merek: {{showProduct.merek}}</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let label of additionalSpec">
+      <ion-label>{{label}}: {{showProduct.tambahan[label]}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

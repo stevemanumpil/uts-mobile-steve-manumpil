@@ -1,0 +1,18 @@
+#profile-picture {
+    width: 50%;
+    height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid white;
+}
+
+.bg {
+    background-image: url('https://cdn130.picsart.com/288302245004201.jpg?type=webp&to=min&r=480');
+    width: 100%;
+    height: 30%;
+}
+
+.content {
+    position: relative;
+    top: -100px;
+}
