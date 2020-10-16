@@ -48,7 +48,7 @@ export class AddFormComponent implements OnInit {
 
     this.presentLoading().then(() => {
       const new_product = {
-        'id' : 'p'+(this.productService.getAllProducts().length + 1),
+        'id' : 'p'+(this.productService.getCounter() + 1),
         'foto' : form.value.foto,
         'jenis' : form.value.jenis,
         'model' : form.value.model,
@@ -77,7 +77,7 @@ export class AddFormComponent implements OnInit {
           'compatible brand' : form.value.compatibleBrand
         }
       }
-  
+      this.productService.setCounter(1)
       this.productService.addProduct(new_product)
       this.modalCtrl.dismiss(null, 'cancel')
       this.presentToast(form.value.model)

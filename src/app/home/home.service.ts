@@ -108,6 +108,7 @@ export class HomeService {
       stok: 5,
     },
   ]
+  private counter: number = this.products.length
   constructor() { }
 
   getAllProducts(){
@@ -118,6 +119,14 @@ export class HomeService {
     return {...this.products.find(product => {
       return product.id === productId;
     })};
+  }
+
+  getCounter(){
+    return this.counter
+  }
+
+  setCounter(count: number){
+    this.counter+=count
   }
 
   addProduct(product: Product){
