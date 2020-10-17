@@ -35,7 +35,7 @@ export class EditFormComponent implements OnInit {
     }
 
     const edit_product = {
-      'id' : 'p'+(this.productService.getAllProducts().length + 1),
+      'id' : form.value.id,
       'foto' : form.value.foto,
       'jenis' : form.value.jenis,
       'model' : form.value.model,

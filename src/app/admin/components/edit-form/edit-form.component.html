@@ -1,5 +1,8 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
   <ion-list>
+    <ion-item class="ion-hide"> 
+      <ion-input [(ngModel)]="product.id" name="id" required></ion-input>
+    </ion-item>
     <ion-item>
       <ion-label position="stacked">URL Foto</ion-label>
       <ion-input type="url" [(ngModel)]="product.foto" name="foto" required></ion-input>
